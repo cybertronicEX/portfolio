@@ -30,7 +30,7 @@ const CurriculumVitae = () => {
           <img src={CVImage} alt="Curriculum Vitae Thumbnail" className="blurred-thumbnail" />
         </div>
         <div className="download-button">
-          <button onClick={handleDownload}>Open CV</button>
+          <button onClick={handleDownload}>View CV</button>
         </div>
       </div>
     </div>
