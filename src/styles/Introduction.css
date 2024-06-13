@@ -1,0 +1,58 @@
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #ff4081;
+  }
+  
+  .bio {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .profile-photo {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    margin-right: 20px;
+    border: 2px solid #ff4081;
+    object-fit: cover; /* Maintain aspect ratio without squashing */
+  }
+  .bio-content {
+    flex: 1;
+  }
+  
+  .professional-summary, .skills, .contact {
+    margin-bottom: 20px;
+  }
+  
+  .skills ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .skills ul li {
+    background: #1c1c1c;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+  }
+  
+  .contact a {
+    color: #ff4081;
+    text-decoration: none;
+  }
+  
+  .contact a:hover {
+    text-decoration: underline;
+  }
+  
+  .bio-content,.professional-summary p{
+    color: #7f8c8d;
+  }
