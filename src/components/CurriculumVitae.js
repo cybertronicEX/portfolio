@@ -1,11 +1,15 @@
-// CurriculumVitae.js
-
-import React from 'react';
+import React, { useState } from 'react';
 import CV from '../assets/CV.pdf'; // Replace with the actual path to your PDF file
 import CVImage from '../assets/CV.png'; // Replace with the actual path to your CV image file
 import '../styles/CurriculumVitae.css';
 
 const CurriculumVitae = () => {
+  const [imageLoading, setImageLoading] = useState(true); // State to track image loading
+
+  const handleImageLoad = () => {
+    setImageLoading(false); // Set loading state to false once image is loaded
+  };
+
   const handleDownload = () => {
     // Function to handle the download button click
     window.open(CV, '_blank'); // Opens the PDF in a new tab/window for download
@@ -26,9 +30,18 @@ const CurriculumVitae = () => {
         reach out to me via email or LinkedIn.
       </p>
       <div className="preview-container">
-        <div className="thumbnail-preview">
-          <img src={CVImage} alt="Curriculum Vitae Thumbnail" className="blurred-thumbnail" />
-        </div>
+        {imageLoading && (
+          <div className="spinner"></div>
+        )} 
+          <div className="thumbnail-preview">
+            <img
+              src={CVImage}
+              alt="Curriculum Vitae Thumbnail"
+              className="blurred-thumbnail"
+              style={{ display: imageLoading ? 'none' : 'block' }}
+              onLoad={handleImageLoad}
+            />
+          </div>
         <div className="download-button">
           <button onClick={handleDownload}>View CV</button>
         </div>
