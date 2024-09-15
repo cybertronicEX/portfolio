@@ -1,8 +1,41 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/Introduction.css';
-import ProfilePic from '../assets/profilepic.png'
+import ProfilePic from '../assets/profilepic.jpg';
+
+const skills = [
+  'Problem solving',
+  'Testing Debugging',
+  'Version controlling',
+  'Responsive designing',
+  'Code Optimization',
+  'Cross-browser Compatibility',
+  'UX/UI Design',
+  'React Development',
+  'API Integration',
+  'Agile Methodologies'
+];
 
 const Introduction = () => {
+  const [currentSkill, setCurrentSkill] = useState(0);
+
+  // Function to go to the previous skill
+  const handlePrevious = () => {
+    setCurrentSkill((prevSkill) => (prevSkill - 1 + skills.length) % skills.length);
+  };
+
+  // Function to go to the next skill
+  const handleNext = () => {
+    setCurrentSkill((prevSkill) => (prevSkill + 1) % skills.length);
+  };
+
+  // Automatically rotate between skills every 3 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      handleNext();
+    }, 3000); // Rotate every 3 seconds
+    return () => clearInterval(interval); // Clear interval on unmount
+  }, []);
+
   return (
     <section id="introduction" key="introduction">
       <div className="container">
@@ -15,17 +48,15 @@ const Introduction = () => {
         </div>
         <div className="professional-summary">
           <h3>Professional Summary</h3>
-          <p>I am committed to establishing a strong foundation in IT industry, with a keen grasp of FrontEnd Development. My focus is on developing proficiency in Fullstack Development, aiming to contribute effectively to projects and teams while continuing to expand my skills and knowledge.</p>
+          <p>I am committed to establishing a strong foundation in the IT industry, with a keen grasp of FrontEnd Development. My focus is on developing proficiency in Fullstack Development, aiming to contribute effectively to projects and teams while continuing to expand my skills and knowledge.</p>
         </div>
-        <div className="skills">
+        <div className="skills-slider">
           <h3>Skills</h3>
-          <ul>
-            <li>Problem solving</li>
-            <li>Testing Debugging</li>
-            <li>Version controlling</li>
-            <li>Responsive designing</li>
-
-          </ul>
+          <div className="slider">
+            <button onClick={handlePrevious} className="slider-button">←</button>
+            <div className="skill current">{skills[currentSkill]}</div>
+            <button onClick={handleNext} className="slider-button">→</button>
+          </div>
         </div>
         <div className="contact">
           <h3>Contact</h3>

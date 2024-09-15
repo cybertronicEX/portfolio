@@ -1,58 +1,102 @@
 .container {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-  
-  h2 {
-    text-align: center;
-    margin-bottom: 20px;
-    color: #ff4081;
-  }
-  
-  .bio {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-  
-  .profile-photo {
-    border-radius: 50%;
-    width: 150px;
-    height: 150px;
-    margin-right: 20px;
-    border: 2px solid #ff4081;
-    object-fit: cover; /* Maintain aspect ratio without squashing */
-  }
-  .bio-content {
-    flex: 1;
-  }
-  
-  .professional-summary, .skills, .contact {
-    margin-bottom: 20px;
-  }
-  
-  .skills ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .skills ul li {
-    background: #1c1c1c;
-    padding: 10px;
-    margin: 5px 0;
-    border-radius: 5px;
-  }
-  
-  .contact a {
-    color: #ff4081;
-    text-decoration: none;
-  }
-  
-  .contact a:hover {
-    text-decoration: underline;
-  }
-  
-  .bio-content,.professional-summary p{
-    color: #7f8c8d;
-  }
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #ff4081;
+}
+
+.bio {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.profile-photo {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  margin-right: 20px;
+  border: 2px solid #ff4081;
+  object-fit: cover;
+}
+
+.bio-content {
+  flex: 1;
+}
+
+.professional-summary, .skills-slider, .contact {
+  margin-bottom: 20px;
+}
+
+/* Slider Styles */
+.skills-slider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.slider {
+  display: flex;
+  align-items: center;
+  height: 200px;
+  width: 100%;
+  justify-content: space-evenly;
+}
+
+.skill {
+  text-align: center;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #1c1c1c;
+  color: white;
+  font-size: 24px;
+  width: 400px;
+  transition: all 0.3s ease;
+  margin: 0 20px;
+  opacity: 1;
+}
+
+.slider-button {
+  background-color: #ff4081;
+  border: none;
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 18px;
+}
+
+.slider-button:hover {
+  background-color: #ff5e9b;
+}
+
+.contact a {
+  color: #ff4081;
+  text-decoration: none;
+}
+
+.contact a:hover {
+  text-decoration: underline;
+}
+
+.bio-content, .professional-summary p {
+  color: #7f8c8d;
+}
+
+/* Animation for skill change */
+.skill {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.current {
+  opacity: 1;
+  transform: translateX(0);
+}

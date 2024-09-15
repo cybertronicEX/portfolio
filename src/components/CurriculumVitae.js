@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import CV from '../assets/CV.pdf'; // Replace with the actual path to your PDF file
-import CVImage from '../assets/CV.png'; // Replace with the actual path to your CV image file
+import CVImage from '../assets/CV.jpg'; // Replace with the actual path to your CV image file
 import '../styles/CurriculumVitae.css';
 
 const CurriculumVitae = () => {
@@ -17,7 +17,7 @@ const CurriculumVitae = () => {
 
   return (
     <div className="cv-container">
-      <h2>Curriculum Vitae</h2>
+      <h2>Curriculum Vitae - CV</h2>
       <p>
         Welcome to my Curriculum Vitae page! Here, you can explore my professional journey,
         skills, qualifications, and accomplishments in detail. This document summarizes my
